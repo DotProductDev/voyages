@@ -536,7 +536,6 @@ function searchAll(filter, filterData) {
                   }
                 }
 
-                // items[filter[key1][key2][key3].varName] = item["searchTerm"];
                 item["varName"] = filter[key1][key2][key3].varName;
                 items.push(item);
               }
@@ -1072,7 +1071,6 @@ function refreshUi(filter, filterData, currentTab, tabData, options) {
       items: searchAll(filter, filterData),
       order_by: []
     };
-    // var currentSearchObj = searchAll(filter, filterData);
     var fuzzySearch = false;
     var exactNameSearch = false;
     var searchedName = false;
@@ -1087,9 +1085,6 @@ function refreshUi(filter, filterData, currentTab, tabData, options) {
     if (!exactNameSearch && searchedName) {
       fuzzySearch = true;
     }
-    // if (!currentSearchObj.exact_name_search && currentSearchObj.searched_name) {
-    //   fuzzySearch = true;
-    // }
 
     // Results DataTable
     var pageLength = {
