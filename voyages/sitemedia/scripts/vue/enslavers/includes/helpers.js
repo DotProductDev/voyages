@@ -446,7 +446,6 @@ function searchAll(filter, filterData) {
                       var sortedSelections = filter[key1][key2][key3].value["searchTerm"].sort(sortNumber);
                       var searchTerm = [];
 
-                      console.log(sortedSelections);
                       if (sortedSelections.includes("0")) {
                         // select all
                         filterData.treeselectOptions[varName][0].children.forEach(
@@ -604,7 +603,7 @@ function getTreeselectLabel(currentVariable, searchTerms, treeselectOptions) {
     if (Array.isArray(searchTerms)) {
       searchTerms.forEach(function(searchTerm) {
         treeselectOptions.forEach(function(treeselectOption) {
-          if (treeselectOption.value == searchTerm || treeselectOption.id == searchTerms) {
+          if (treeselectOption.value == searchTerm || treeselectOption.id == searchTerm) {
             labels.push(treeselectOption.label);
           }
         });
