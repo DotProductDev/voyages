@@ -751,6 +751,13 @@ class VoyageIndex(indexes.SearchIndex, indexes.Indexable):
         helper = VoyagesFullQueryHelper()
         return helper.get_query()
 
+    def full_prepare(self, obj):
+        if not hasattr(obj, 'is_fully_expanded'):
+            # This was not produced by our full query helper, we may assume that
+            # it is an updated object that triggered an update signal.
+            obj = self.index_queryset().get(pk=obj.pk)
+        return super().full_prepare(obj)
+
     def prepare_var_imp_voyage_began(self, obj):
         try:
             return get_year(obj.voyage_dates.imp_voyage_began)
